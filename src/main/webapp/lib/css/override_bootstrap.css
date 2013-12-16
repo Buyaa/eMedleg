@@ -1,0 +1,60 @@
+@import url(http://fonts.googleapis.com/css?family=Arimo&subset=latin,cyrillic-ext);
+
+body {
+	font-family: 'Arimo', sans-serif;
+	font-weight: 300;
+}
+
+.btn-default {
+	background-image: none;
+}
+
+.navbar-default {
+	box-shadow: none;
+	background-image: none;
+	border: none;
+	border-bottom: solid 5px #C6E7B6;
+	border-radius:0;
+}
+.btn {
+	padding: 8px 16px;
+	margin-right: 7px;
+	margin-left: 7px;
+	transition: all .3s;
+	-webkit-transition: all .3s;
+	-moz-transition: all .3s;
+}
+.btn-primary {
+	background-image: none;
+	box-shadow: none;
+	background: none;
+	color: #E6BB5B;
+	border-color: #C7E6B8;
+	text-shadow: 0 1px 0 rgba(230,180,90,0.2);
+	
+	
+}
+
+.btn-primary:hover, .btn-primary:focus {
+	background-color: none;
+	background-position: 0 -15px;
+	color: #E76D2C;
+	background: none;
+	border-color: #9AB46A;
+	
+	}
+.btn-primary:active, .btn-primary.active {
+	background-color: #C6E7B6;
+	color:#E7AC2B;
+	border-color: #E7AC2B;
+}
+
+nav > ul {
+	height: 5.7em;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.navbar-brand {
+padding: 1em 2em;
+}

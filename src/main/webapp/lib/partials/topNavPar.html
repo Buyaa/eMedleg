@@ -1,0 +1,10 @@
+<nav class="navbar navbar-default" role="navigation">
+	
+	<a class="navbar-brand" href="#">
+		<img alt="eMedleg" src="lib/img/eMedleg_logo.svg"> 
+	</a>
+	
+		<ul>
+			<li ng-repeat="menuData in topMenuData" class="btn btn-primary navbar-btn navMenu" id="menu{{ menuData.id }}" ng-click="navBtnClick()">{{ menuData.title }}</li>
+		</ul>
+</nav>

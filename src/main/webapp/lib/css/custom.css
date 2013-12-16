@@ -1,0 +1,17 @@
+@import url(http://fonts.googleapis.com/css?family=Comfortaa);
+
+.navMenu {
+	font-family: 'Comfortaa', cursive;
+	font-size: 1.2em;
+	font-weight: 300;
+	text-transform: uppercase;
+	text-shadow: 0 0 1px rgba(230,180,90,0.5);
+	min-width: 7em;
+	
+}
+
+
+ nav > ul > li#menu4 {
+	position: absolute;
+	right: 1em;
+} 

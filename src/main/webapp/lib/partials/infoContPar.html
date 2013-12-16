@@ -1,0 +1,11 @@
+<section ng-repeat="news in latestNewsData">
+	<div class="col-lg-9 col-md-9">
+		<article class="panel panel-info">
+			<div class="panel-heading">
+				<span>{{ news.title }}</span>
+			</div>
+			<div class="panel-body">{{ news.content }}</div>
+			<div class="panel-footer"> {{ news.userName }} : {{ news.createdDate }}</div>
+		</article>
+	</div>
+</section>
