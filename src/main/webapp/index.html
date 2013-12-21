@@ -1,26 +1,23 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link type="text/css" rel="stylesheet" href="vendor/css/bootstrap.min.css">
-<link type="text/css" rel="stylesheet" href="vendor/css/bootstrap-theme.min.css">
-<link type="text/css" rel="stylesheet" href="lib/css/override_bootstrap.css">
-<link type="text/css" rel="stylesheet" href="lib/css/custom.css">
-<title>E-Medleg Electron knowledge</title>
-</head>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+        <link type="text/css" rel="stylesheet" href="vendor/css/bootstrap.css">
+        <!--<link type="text/css" rel="stylesheet" href="vendor/css/bootstrap-theme.css">-->
+        <link type="text/css" rel="stylesheet" href="lib/css/override_bootstrap.css">
+        <link type="text/css" rel="stylesheet" href="lib/css/custom.css">
+        <title>E-Medleg Electron knowledge</title>
+    </head>
 <body ng-app="myApp">
-	<div id="wrapper"  class="container" >
-	
+	<div id="wrapper"  class="container" ng-model="globalModel">
+
 <!-- ============================== TOP NAVIGATION ========================== -->
-	<section id="top-navigation" ng-controller="topMenuCtrl">
+    <section id="top-navigation" ng-controller="topMenuCtrl">
 		<data-top-nav-bar ></data-top-nav-bar>
+
 	</section>
 	
-<!-- ============================ LOGIN MODAL ============================= -->
-	<data-login-modal ng-show="showLogin"></data-login-modal>
-	
-	
-<!-- ====================================  NEWS ========================= -->	
+<!-- ====================================  NEWS ========================= -->
 	<section id="main_news_area" ng-controller="latestNewsCtrl">
 	 	<data-info-cont-dir></data-info-cont-dir>
 	</section>
@@ -29,7 +26,7 @@
 	<section id="sideArea" class="col-lg-3 col-md-3">
 		<article class="panel panel-info">
 			<div class="panel-heading">A side panel title</div>
-			<div class="panel-body">Here is panel body</div>
+			<div class="panel-body">111 Here is panel body</div>
 		</article>
 	</section>
  <!-- ================================== footer ============================ -->
@@ -37,16 +34,21 @@
 	
 </div> <!-- End of wrapper div -->
 
+    <!--=============================== VENDOR JS =================================-->
 	<script type="text/javascript" src="vendor/angular.js"></script>
 	<script type="text/javascript" src="vendor/angular-resource.js"></script>
+	<script type="text/javascript" src="vendor/angular-route.js"></script>
+    <script type="text/javascript" src="vendor/ui-bootstrap-custom-0.7.0.js"></script>
 	<script type="text/javascript" src="vendor/jquery-2.0.3.min.js"></script>
 	<script type="text/javascript" src="vendor/js/bootstrap.min.js"></script>
+
+    <!--=========================== CUSTOM JS =============================-->
+
 	<script type="text/javascript" src="lib/app.js"></script>
 	<script type="text/javascript" src="lib/services/data_services.js"></script>
 	<script type="text/javascript" src="lib/directive/topNavBarDir.js"></script>
 	<script type="text/javascript" src="lib/directive/infoContentDir.js"></script>
-	<script type="text/javascript" src="lib/directive/loginModalDir.js"></script>
-	
+
 	
 	<script type="text/javascript">
 	

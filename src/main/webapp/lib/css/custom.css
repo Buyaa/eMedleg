@@ -14,4 +14,9 @@
  nav > ul > li#menu4 {
 	position: absolute;
 	right: 1em;
-} 
+}
+
+.loginWindow {
+    width: 25em;
+    margin: 0 auto;
+}
