@@ -5,6 +5,10 @@ body {
 	font-weight: 300;
 }
 
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: 'Comfortaa', cursive;
+}
+
 .btn-default {
 	background-image: none;
 }
@@ -25,7 +29,6 @@ body {
 	-moz-transition: all .3s;
 }
 .btn-primary {
-	background-image: none;
 	box-shadow: none;
 	background: none;
 	color: #E6BB5B;
@@ -36,17 +39,22 @@ body {
 }
 
 .btn-primary:hover, .btn-primary:focus {
-	background-color: none;
+	background-color: #e7e7e7;
 	background-position: 0 -15px;
 	color: #E76D2C;
 	background: none;
-	border-color: #9AB46A;
+	border-color: #9ab46a;
 	
 	}
 .btn-primary:active, .btn-primary.active {
 	background-color: #C6E7B6;
 	color:#E7AC2B;
 	border-color: #E7AC2B;
+}
+
+.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary, .btn-primary.disabled:hover, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary:hover, .btn-primary.disabled:focus, .btn-primary[disabled]:focus, fieldset[disabled] .btn-primary:focus, .btn-primary.disabled:active, .btn-primary[disabled]:active, fieldset[disabled] .btn-primary:active, .btn-primary.disabled.active, .btn-primary[disabled].active, fieldset[disabled] .btn-primary.active {
+    background-color: #F5F6F7;
+    border-color: #D8D8D8;
 }
 
 nav > ul {
@@ -57,4 +65,33 @@ nav > ul {
 
 .navbar-brand {
 padding: 1em 2em;
+}
+.modal-header {
+    background-color: #e7e7e7;
+    border-bottom: 3px solid #C6E7B6;
+}
+
+
+.modal-title {
+    margin-right: 0.5em;
+    color: #E7AC2B;
+}
+
+.form-control:focus {
+    border-color: #E7AC2B;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(231, 172, 43, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(231, 172, 43, 0.6);
+}
+
+.input-group-addon {
+    min-width: 8em;
+}
+/*============================== ANGULAR BOOTSTRAP =========================*/
+.nav, .pagination, .carousel a { cursor: pointer; }
+
+.modal {
+    display: block;
+    height: 0;
+    overflow: visible;
 }

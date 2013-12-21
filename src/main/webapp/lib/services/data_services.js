@@ -7,9 +7,14 @@ app.factory('latestContent', function($resource){
 });
 
 
-app.factory('globalScope', function($resource){
-	return {
-		showLogin: "true"
-	}
-});
 
+app.factory('userService', function(){
+
+    var checkUser = function(user){
+        user = user.name + " Orson";
+
+    };
+
+    return checkUser;
+
+});

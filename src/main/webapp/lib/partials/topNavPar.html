@@ -5,6 +5,6 @@
 	</a>
 	
 		<ul>
-			<li ng-repeat="menuData in topMenuData" class="btn btn-primary navbar-btn navMenu" id="menu{{ menuData.id }}" ng-click="navBtnClick()">{{ menuData.title }}</li>
+			<li ng-repeat="menuData in topMenuData" class="btn btn-primary navbar-btn navMenu" id="menu{{ menuData.id }}" ng-click="open()" >{{ menuData.title }}</li>
 		</ul>
 </nav>
