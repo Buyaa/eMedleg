@@ -1,7 +1,7 @@
 var app = angular.module('myApp',  ['ngResource', 'ngRoute', 'ui.bootstrap'] );
 
 
-app.controller('topMenuCtrl', function($scope, topMenuResource, $modal, userService){
+app.controller('topMenuCtrl', function($scope, topMenuResource, $modal, $http){
 	topMenuResource.query(function(menuData){
 		$scope.topMenuData = menuData;
 		console.log($scope.topMenuData);
@@ -14,21 +14,25 @@ app.controller('topMenuCtrl', function($scope, topMenuResource, $modal, userServ
         });
     };
     //console.log($scope.user.ner);
-    var ModalInstanceCtrl = function ($scope, $modalInstance) {
+    var ModalInstanceCtrl = function ($scope, $modalInstance, $log) {
 
 
         $scope.user = {};
         $scope.user.name = "";
         $scope.user.pass = "";
 
-
-        $scope.userLogin = function () {
+        $scope.userLogin = function(){
+            $http({method: 'POST', url:'/userAuthenticate', data: $scope.user})
+                .success(function(data, status, headers, config){
+                    $log.info(data, status, headers, config);
+                })
+                .error(function(data, status, headers, config){
+                    $log.warn(data, status, headers, config)
+                });
             $modalInstance.close();
-
-            console.log($scope.user.name);
-            console.log($scope.user.pass);
-
         };
+
+
 
         $scope.cancel = function () {
             $modalInstance.dismiss('cancel');
