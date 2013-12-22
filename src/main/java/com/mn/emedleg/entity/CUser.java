@@ -20,7 +20,7 @@ public class CUser implements IUser{
 	private String emailID;
 	private boolean enabled;
 	@Enumerated(EnumType.STRING)
-    @Column(name = "user_role")
+    @Column(name = "userRole")
     private Role role;
     //  get and set
 	public enum Role {
