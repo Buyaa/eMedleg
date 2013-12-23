@@ -35,11 +35,11 @@ app.controller('topMenuCtrl', function($scope, topMenuResource, $modal, $http, u
 
 
         $scope.user = {};
-        $scope.user.name = "";
-        $scope.user.pass = "";
+        $scope.user.email = "";
+        $scope.user.password = "";
 
         $scope.userLogin = function(){
-            $http({method: 'POST', url:'/userAuthenticate', data: $scope.user})
+            $http({method: 'POST', url:'./userAuthenticate', data: { email: $scope.user.email, password: $scope.user.password} })
                 .success(function(data, status, headers, config){
                     $log.info(data, status, headers, config);
                 })

@@ -8,17 +8,17 @@
                 <div class="loginWindow">
                     <div class="input-group">
                         <span class="input-group-addon">Нэвтрэх нэр: </span>
-                        <input type="text" class="form-control" placeholder="Username" required min="2" ng-model="user.name">
+                        <input type="text" class="form-control" placeholder="Username" required min="2" ng-model="user.email">
                     </div>
                     <br/>
                     <div class="input-group">
                         <span class="input-group-addon">Нууц үг: </span>
-                        <input type="password" class="form-control" placeholder="Password" required min="2" ng-model="user.pass">
+                        <input type="password" class="form-control" placeholder="Password" required min="2" ng-model="user.password">
                     </div>
                 </div>
             </div><!-- /.modal-body -->
             <div class="modal-footer">
-                <button class="btn btn-primary" ng-disabled="!user.name || !user.pass" ng-click="userLogin()">Нэвтрэх</button>
+                <button class="btn btn-primary" ng-disabled="!user.email || !user.password" ng-click="userLogin()">Нэвтрэх</button>
                 <button class="btn btn-default" ng-click="cancel()">Хаах</button>
             </div>
         </div><!-- /.modal-content -->
