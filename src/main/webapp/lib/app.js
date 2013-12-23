@@ -2,8 +2,8 @@ var app = angular.module('myApp',  ['ngResource', 'ngRoute', 'ui.bootstrap'] );
 
 
 app.controller('topMenuCtrl', function($scope, topMenuResource, $modal, $http, userAuth){
-    $scope.login = {};
-    $scope.login.btnTxt = "Нэвтрэх/Login in";
+
+    $scope.login = { btnTxt: 'Нэвтрэх/Login in'};
     console.log($scope.login);
     console.log($scope.login.btnTxt);
 
@@ -15,13 +15,13 @@ app.controller('topMenuCtrl', function($scope, topMenuResource, $modal, $http, u
 
     console.log(userAuth.isLoggedIn);
 
-    if(userAuth.isLoggedIn == false){
+    /*if(userAuth.isLoggedIn == false){
         $scope.login.btnTxt = "Нэвтрэх/Login in";
         console.log($scope.login.btnTxt);
     } else {
         $scope.login.btnTxt = "Гарах/Logout";
         console.log($scope.login.btnTxt);
-    };
+    };*/
 
 
     $scope.login = function(){
@@ -57,6 +57,7 @@ app.controller('topMenuCtrl', function($scope, topMenuResource, $modal, $http, u
     };
 
 });
+
 
 app.controller('latestNewsCtrl', function($scope, latestContent){
 	latestContent.query(function(newsData){
