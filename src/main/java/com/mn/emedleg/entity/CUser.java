@@ -14,7 +14,8 @@ public class CUser implements IUser{
 	@Id
 	@GeneratedValue
 	private long id;
-	private String userName;
+	private String firstName;
+	private String lastName;
 	private String password;
 	private Date registeredDate;
 	private String emailID;
@@ -24,9 +25,16 @@ public class CUser implements IUser{
     private Role role;
     //  get and set
 	public enum Role {
-		ROLE_ADMIN, ROLE_USER
+		ROLE_ADMIN, ROLE_PUBLICIST,ROLE_USER
 	}
 	
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 	public String getEmailID() {
 		return emailID;
 	}
@@ -52,12 +60,12 @@ public class CUser implements IUser{
 		this.registeredDate = registeredDate;
 	}
 	public CUser(){}
-	public CUser(String userName) {
-		this.userName = userName;
+	public CUser(String firstName) {
+		this.firstName = firstName;
 		this.registeredDate=new Date();
 	}
-	public CUser(String userName, String password) {
-		this.userName = userName;
+	public CUser(String firstName, String password) {
+		this.firstName = firstName;
 		this.password = password;
 		this.registeredDate=new Date();
 	}
@@ -68,11 +76,10 @@ public class CUser implements IUser{
 		this.password = password;
 	}
 	public String getUserName() {
-		return userName;
+		return firstName+" "+lastName;
 	}
 	@Override
 	public String getRegisteredDate() {
 		return registeredDate.toString();
 	}
-	
 }

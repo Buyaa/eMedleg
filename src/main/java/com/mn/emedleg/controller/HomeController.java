@@ -55,12 +55,12 @@ public class HomeController {
         return contentService.getLatest();
     }
 	@ExceptionHandler(Exception.class)
-	    public @ResponseBody String handleIOException(Exception ex, HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public @ResponseBody String handleIOException(Exception ex, HttpServletRequest request, HttpServletResponse response) throws IOException {
 	    	System.out.println("handling1: unexpected error: " + ex.getLocalizedMessage());
 	    	response.setHeader("Content-Type", "application/json");
 	    	response.sendError(503, "" + ex.getLocalizedMessage());
 	    	System.out.println("handling2: RETURNING: unexpected error: " + ex.getLocalizedMessage());
 	    	return "unexpected error: " + ex.getLocalizedMessage();
-	    }
+	}
 	
 }

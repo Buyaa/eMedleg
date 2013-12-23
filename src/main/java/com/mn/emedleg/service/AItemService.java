@@ -5,7 +5,6 @@ import java.util.List;
 import com.mn.emedleg.dao.IItemDAO;
 
 public abstract class AItemService <T> implements IItemService<T> {
-//	private Class<T> clazz;
 	private IItemDAO<T> itemDAO;
 	public void setItemDAO(IItemDAO<T> itemDAO){
 		this.itemDAO=itemDAO;
@@ -13,9 +12,6 @@ public abstract class AItemService <T> implements IItemService<T> {
 	public IItemDAO<T> getDAO(){
 		return itemDAO;
 	} 
-//	public AItemService(Class<T> clazz) {
-//        this.clazz = clazz;
-//    }
 	@Override
 	public List<T> getAll(long parentID) {
 		return itemDAO.listAll(parentID);
