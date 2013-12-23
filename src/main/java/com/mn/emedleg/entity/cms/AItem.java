@@ -50,6 +50,6 @@ public abstract class AItem implements IItem{
 		this.title = title;
 	}
 	public String getCreatedDate(){
-		return createdDate.toLocaleString();
+		return createdDate.toString();
 	}
 }

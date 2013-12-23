@@ -107,6 +107,6 @@ public class CComment implements IComment{
 	}
 	@Override
 	public String getCreatedDate(){
-		return createdDate.toLocaleString();
+		return createdDate.toString();
 	}
 }

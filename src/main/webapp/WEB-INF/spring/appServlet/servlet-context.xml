@@ -24,6 +24,7 @@
 	<beans:bean id="commentDAO" class="com.mn.emedleg.dao.CCommentDAO" parent="itemDAO"/>
  	<beans:bean id="contentDAO" class="com.mn.emedleg.dao.CContentDAO" parent="itemDAO"/>
 	<beans:bean id="menuDAO" class="com.mn.emedleg.dao.CMenuDAO" parent="itemDAO"/>
+	<beans:bean id="userDAO" class="com.mn.emedleg.dao.CUserDAO" parent="itemDAO"/>
 	<beans:bean id="menuService" class="com.mn.emedleg.service.CMenuService" parent="itemService">
 		<beans:property name="itemDAO" ref="menuDAO"/>
 	</beans:bean>
@@ -33,7 +34,9 @@
 	<beans:bean id="commentService" class="com.mn.emedleg.service.CCommentService" parent="itemService">
 		<beans:property name="itemDAO" ref="commentDAO"/>
 	</beans:bean>	 
- 	
+ 	<beans:bean id="userService" class="com.mn.emedleg.service.CUserService" parent="itemService">
+		<beans:property name="itemDAO" ref="userDAO"/>
+	</beans:bean>
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory-->
 	<resources mapping="/resources/**" location="/resources/" /> 
 
