@@ -11,7 +11,7 @@
 }
 
 
- nav > ul > li#menu4 {
+ nav > ul > #logBtn {
 	position: absolute;
 	right: 1em;
 }

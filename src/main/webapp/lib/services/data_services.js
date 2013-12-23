@@ -8,20 +8,9 @@ app.factory('latestContent', function($resource){
 
 
 
-/*
-app.factory('userService', function($http, $log){
+app.factory('userAuth', function(){
     return {
-
-        addUser: function(successcb){
-            $http({method: 'GET', url: 'lastContents.json'})
-            .success(function(data, status, headers, config){
-                $log.info(data, status, headers, config);
-            })
-            .error(function(data, status, headers, config){
-                $log.warn(data, status, headers, config);
-            });
-        }
+        isLoggedIn: 'false',
+        username: 'null'
     };
-
-
-});*/
+});

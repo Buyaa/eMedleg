@@ -1,13 +1,30 @@
 var app = angular.module('myApp',  ['ngResource', 'ngRoute', 'ui.bootstrap'] );
 
 
-app.controller('topMenuCtrl', function($scope, topMenuResource, $modal, $http){
+app.controller('topMenuCtrl', function($scope, topMenuResource, $modal, $http, userAuth){
+    $scope.login = {};
+    $scope.login.btnTxt = "Нэвтрэх/Login in";
+    console.log($scope.login);
+    console.log($scope.login.btnTxt);
+
 	topMenuResource.query(function(menuData){
 		$scope.topMenuData = menuData;
 		console.log($scope.topMenuData);
 	});
 
-    $scope.open = function(){
+
+    console.log(userAuth.isLoggedIn);
+
+    if(userAuth.isLoggedIn == false){
+        $scope.login.btnTxt = "Нэвтрэх/Login in";
+        console.log($scope.login.btnTxt);
+    } else {
+        $scope.login.btnTxt = "Гарах/Logout";
+        console.log($scope.login.btnTxt);
+    };
+
+
+    $scope.login = function(){
         var modelInstance = $modal.open({
             templateUrl: './lib/partials/loginPar.html',
             controller: ModalInstanceCtrl
