@@ -43,7 +43,6 @@ public abstract class AItemDAO<T> implements IItemDAO<T> {
 	@Override
 	public T get(long id) {
 		return (T)factory.getCurrentSession().get(clazz, id);
-//		factory.getCurrentSession().delete(entity);
 	}
 
 //	@Override
