@@ -7,10 +7,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mn.emedleg.entity.CLoginInfo;
+import com.mn.emedleg.entity.CUser;
+import com.mn.emedleg.entity.IUser;
+import com.mn.emedleg.entity.UserInfo;
 import com.mn.emedleg.service.IUserService;
 
 
@@ -20,14 +24,13 @@ public class UserContoller {
 	@Resource
 	IUserService userService;
 	@RequestMapping("/userAuthenticate")
-    public @ResponseBody boolean getNewContents(HttpSession session, CLoginInfo user, HttpServletResponse response) {
-		System.out.println("controller: "+user.getEmail()+" "+user.getPassword());
-		if(userService.autenticate(user.getEmail(),user.getPassword())){
-			
-			response.addCookie(new Cookie("SID", session.getId()));
-			return true;
+    public @ResponseBody UserInfo getNewContents(HttpSession session,@RequestBody CLoginInfo user, HttpServletResponse response) {
+		IUser cuser=userService.autenticate(user.getEmail(),user.getPassword());
+		if(cuser!=null){
+			//response.addCookie(new Cookie("SID", session.getId())); cookie bna
+			return new UserInfo(cuser.getUserName(), cuser.getRegisteredDate(), cuser.isEnabled(), cuser.getRole());
 		}
 		response.setStatus(401);
-        return false;
+        return null;
     }
 }

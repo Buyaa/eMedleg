@@ -47,8 +47,8 @@ public class CUser implements IUser{
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-	public Role getRole() {
-		return role;
+	public String getRole() {
+		return role.toString();
 	}
 	public void setRole(Role role) {
 		this.role = role;
