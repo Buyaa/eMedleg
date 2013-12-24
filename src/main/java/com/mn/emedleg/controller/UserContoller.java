@@ -28,6 +28,7 @@ public class UserContoller {
 		IUser cuser=userService.autenticate(user.getEmail(),user.getPassword());
 		if(cuser!=null){
 			//response.addCookie(new Cookie("SID", session.getId())); cookie bna
+			
 			return new UserInfo(cuser.getUserName(), cuser.getRegisteredDate(), cuser.isEnabled(), cuser.getRole());
 		}
 		response.setStatus(401);
