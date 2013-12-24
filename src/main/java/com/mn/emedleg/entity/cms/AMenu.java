@@ -20,11 +20,14 @@ public abstract class AMenu extends AItem implements IMenu {
 	@JsonIgnore
 	@OneToMany(mappedBy="parentMenu", targetEntity=AContent.class)
 	protected List<IContent> contents;
-	
+	private int role; 
 	@ManyToOne(targetEntity=AMenu.class)
 	@JoinColumn(name="parent_id")
 	protected IMenu parent;
 	
+	public int getRole() {
+		return role;
+	}
 	@JsonBackReference
 	public IMenu getParent() {
 		return parent;

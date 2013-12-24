@@ -1,16 +1,13 @@
 package com.mn.emedleg.entity;
 
-import java.util.Date;
-
-import com.mn.emedleg.entity.CUser.Role;
 
 public class UserInfo {
 	private String name;
 	private String registeredDate;
 	private boolean enabled;
-    private String role;
+    private int role;
     public UserInfo(){}
-	public UserInfo(String name, String registeredDate, boolean enabled, String role) {
+	public UserInfo(String name, String registeredDate, boolean enabled, int role) {
 		this.name = name;
 		this.registeredDate = registeredDate;
 		this.enabled = enabled;
@@ -25,7 +22,7 @@ public class UserInfo {
 	public boolean isEnabled() {
 		return enabled;
 	}
-	public String getRole() {
+	public int getRole() {
 		return role;
 	}
 }

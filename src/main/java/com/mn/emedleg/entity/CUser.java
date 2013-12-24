@@ -4,8 +4,6 @@ import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
@@ -20,12 +18,12 @@ public class CUser implements IUser{
 	private Date registeredDate;
 	private String emailID;
 	private boolean enabled;
-	@Enumerated(EnumType.STRING)
+//	@Enumerated(EnumType.STRING)
     @Column(name = "userRole")
     private Role role;
     //  get and set
 	public enum Role {
-		ROLE_ADMIN, ROLE_PUBLICIST,ROLE_USER
+		ROLE_USER, ROLE_PUBLICIST, ROLE_ADMIN
 	}
 	
 	public void setFirstName(String firstName) {
@@ -47,8 +45,8 @@ public class CUser implements IUser{
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-	public String getRole() {
-		return role.toString();
+	public int getRole() {
+		return role.ordinal();
 	}
 	public void setRole(Role role) {
 		this.role = role;
