@@ -1,62 +1,58 @@
 var app = angular.module('myApp',  ['ngResource', 'ngRoute', 'ui.bootstrap'] );
 
 
-app.controller('topMenuCtrl', function($scope, topMenuResource, $modal, $http, userAuth){
-
-    $scope.login = { btnTxt: 'Нэвтрэх/Login in'};
-    console.log($scope.login);
-    console.log($scope.login.btnTxt);
-
+app.controller('topMenuCtrl', function($scope, topMenuResource, $modal, $http, userAuthSer){
 	topMenuResource.query(function(menuData){
 		$scope.topMenuData = menuData;
 		console.log($scope.topMenuData);
 	});
 
+    $scope.user = {};
 
-    console.log(userAuth.isLoggedIn);
+    if(userAuthSer.isLoggedIn == false){
+        $scope.user.btnTxt = "Нэвтрэх";
+        console.log($scope.user.btnTxt);
 
-    /*if(userAuth.isLoggedIn == false){
-        $scope.login.btnTxt = "Нэвтрэх/Login in";
-        console.log($scope.login.btnTxt);
+        $scope.login = function(){
+            var modelInstance = $modal.open({
+                templateUrl: './lib/partials/loginPar.html',
+                controller: ModalInstanceCtrl
+            });
+        };
+
+        var ModalInstanceCtrl = function ($scope, $modalInstance, $log) {
+
+
+            $scope.user = {};
+            $scope.user.email = "";
+            $scope.user.password = "";
+
+            $scope.userLogin = function(){
+                $http({method: 'POST', url:'./userAuthenticate', data: { email: $scope.user.email, password: $scope.user.password} })
+                    .success(function(data, status, headers, config){
+                        $log.info(data, status, headers, config);
+                    })
+                    .error(function(data, status, headers, config){
+                        $log.warn(data, status, headers, config)
+                    });
+                $modalInstance.close();
+            };
+
+
+
+            $scope.cancel = function () {
+                $modalInstance.dismiss('cancel');
+            };
+        };
     } else {
-        $scope.login.btnTxt = "Гарах/Logout";
-        console.log($scope.login.btnTxt);
-    };*/
-
-
-    $scope.login = function(){
-        var modelInstance = $modal.open({
-            templateUrl: './lib/partials/loginPar.html',
-            controller: ModalInstanceCtrl
-        });
+        $scope.user.btnTxt = "Гарах";
+        console.log($scope.user.btnTxt);
     };
-    //console.log($scope.user.ner);
-    var ModalInstanceCtrl = function ($scope, $modalInstance, $log) {
 
 
-        $scope.user = {};
-        $scope.user.email = "";
-        $scope.user.password = "";
-
-        $scope.userLogin = function(){
-            $http({method: 'POST', url:'./userAuthenticate', data: { email: $scope.user.email, password: $scope.user.password} })
-                .success(function(data, status, headers, config){
-                    $log.info(data, status, headers, config);
-                })
-                .error(function(data, status, headers, config){
-                    $log.warn(data, status, headers, config)
-                });
-            $modalInstance.close();
-        };
-
-
-
-        $scope.cancel = function () {
-            $modalInstance.dismiss('cancel');
-        };
-    };
 
 });
+
 
 
 app.controller('latestNewsCtrl', function($scope, latestContent){

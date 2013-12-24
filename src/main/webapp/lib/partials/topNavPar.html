@@ -4,7 +4,7 @@
 		<img alt="eMedleg" src="lib/img/eMedleg_logo.svg"> 
 	</a>
 		<ul>
-			<li ng-repeat="menuData in topMenuData" class="btn btn-primary navbar-btn navMenu" id="menu{{ menuData.id }}" ng-click="open()" >{{ menuData.title }}</li>
-            <li id="logBtn" class="btn btn-primary navbar-btn navMenu" ng-click="login()">1111{{ login.btnTxt }}</li>
+			<li ng-repeat="menuData in topMenuData" class="btn btn-primary navbar-btn navMenu" id="menu{{ menuData.id }}">{{ menuData.title }}</li>
+            <li id="logBtn" class="btn btn-primary navbar-btn navMenu" ng-click="login()">{{ user.btnTxt }}</li>
 		</ul>
 </nav>

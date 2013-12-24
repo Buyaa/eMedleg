@@ -8,9 +8,10 @@ app.factory('latestContent', function($resource){
 
 
 
-app.factory('userAuth', function(){
+app.factory('userAuthSer', function(){
     return {
-        isLoggedIn: 'false',
-        username: 'null'
+        isLoggedIn: true,
+        username: null
     };
 });
+
