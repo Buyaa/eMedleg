@@ -31,6 +31,8 @@ app.controller('topMenuCtrl', function($scope, topMenuResource, $modal, $http, u
                 $http({method: 'POST', url:'./userAuthenticate', data: { email: $scope.user.email, password: $scope.user.password} })
                     .success(function(data, status, headers, config){
                         $log.info(data, status, headers, config);
+                        userAuthSer.isLoggedIn = true;
+                        console.log(userAuthSer.isLoggedIn = true);
                     })
                     .error(function(data, status, headers, config){
                         $log.warn(data, status, headers, config)

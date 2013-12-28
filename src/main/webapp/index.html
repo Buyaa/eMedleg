@@ -11,24 +11,28 @@
 <body ng-app="myApp">
 	<div id="wrapper"  class="container" ng-model="globalModel">
 
+
+
 <!-- ============================== TOP NAVIGATION ========================== -->
     <section id="top-navigation" ng-controller="topMenuCtrl">
+
 		<data-top-nav-bar ></data-top-nav-bar>
 
 	</section>
-	
+	<div id="main_content_area">
 <!-- ====================================  NEWS ========================= -->
-	<section id="main_news_area" ng-controller="latestNewsCtrl">
+	<section id="main_news_area" ng-controller="latestNewsCtrl" class="col-lg-9 col-md-9">
 	 	<data-info-cont-dir></data-info-cont-dir>
 	</section>
 
-<!-- =================================== A SIDE AREA ========================= -->	
-	<section id="sideArea" class="col-lg-3 col-md-3">
+<!-- =================================== A SIDE AREA ========================= -->
+	<section id="side_area" class="col-lg-3 col-md-3">
 		<article class="panel panel-info">
-			<div class="panel-heading">A side panel title</div>
 			<div class="panel-body">111 Here is panel body</div>
 		</article>
 	</section>
+    </div>
+
  <!-- ================================== footer ============================ -->
 	
 	
@@ -47,6 +51,7 @@
 	<script type="text/javascript" src="lib/app.js"></script>
 	<script type="text/javascript" src="lib/services/data_services.js"></script>
 	<script type="text/javascript" src="lib/directive/topNavBarDir.js"></script>
+    <script type="text/javascript" src="lib/directive/topUserMenu.js"></script>
 	<script type="text/javascript" src="lib/directive/infoContentDir.js"></script>
 
 	

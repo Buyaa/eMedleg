@@ -10,7 +10,7 @@ app.factory('latestContent', function($resource){
 
 app.factory('userAuthSer', function(){
     return {
-        isLoggedIn: true,
+        isLoggedIn: false,
         username: null
     };
 });
