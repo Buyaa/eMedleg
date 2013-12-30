@@ -9,17 +9,19 @@
         <title>E-Medleg Electron knowledge</title>
     </head>
 <body ng-app="myApp">
-	<div id="wrapper"  class="container" ng-model="globalModel">
+<section id="top-navigation" ng-controller="topMenuCtrl">
+
+    <data-top-nav-bar></data-top-nav-bar>
+
+</section>
+
+<div id="wrapper"  class="container" ng-model="globalModel">
 
 
 
 <!-- ============================== TOP NAVIGATION ========================== -->
-    <section id="top-navigation" ng-controller="topMenuCtrl">
 
-		<data-top-nav-bar ></data-top-nav-bar>
 
-	</section>
-	<div id="main_content_area">
 <!-- ====================================  NEWS ========================= -->
 	<section id="main_news_area" ng-controller="latestNewsCtrl" class="col-lg-9 col-md-9">
 	 	<data-info-cont-dir></data-info-cont-dir>
@@ -27,16 +29,28 @@
 
 <!-- =================================== A SIDE AREA ========================= -->
 	<section id="side_area" class="col-lg-3 col-md-3">
-		<article class="panel panel-info">
-			<div class="panel-body">111 Here is panel body</div>
+		<article class="panel panel-default">
+			<div class="panel-body"></div>
 		</article>
 	</section>
-    </div>
 
- <!-- ================================== footer ============================ -->
-	
-	
+
 </div> <!-- End of wrapper div -->
+
+    <!-- ================================== footer ============================ -->
+<footer id="footer_area">
+    <div id="footer_content">
+        <div class="container">
+            <p> Here is suppose to be some content for footer</p>
+        </div>
+    </div>
+    <div id="footer_copyright" >
+        <div  class="container">
+            <h6>2014 он © Бүх эрх хуулиар хамгаалагдсан болно.</h6>
+        </div>
+    </div>
+</footer>
+
 
     <!--=============================== VENDOR JS =================================-->
 	<script type="text/javascript" src="vendor/angular.js"></script>
@@ -44,7 +58,7 @@
 	<script type="text/javascript" src="vendor/angular-route.js"></script>
     <script type="text/javascript" src="vendor/ui-bootstrap-custom-0.7.0.js"></script>
 	<script type="text/javascript" src="vendor/jquery-2.0.3.min.js"></script>
-	<script type="text/javascript" src="vendor/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="vendor/angular-md5.js"></script>
 
     <!--=========================== CUSTOM JS =============================-->
 
@@ -60,4 +74,5 @@
 	
 	</script>
 </body>
+
 </html>

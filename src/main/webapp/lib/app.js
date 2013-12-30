@@ -1,13 +1,16 @@
 var app = angular.module('myApp',  ['ngResource', 'ngRoute', 'ui.bootstrap'] );
 
 
-app.controller('topMenuCtrl', function($scope, topMenuResource, $modal, $http, userAuthSer){
+app.controller('topMenuCtrl', function($scope, topMenuResource, $modal, $http, userAuthSer, userLoginSer){
 	topMenuResource.query(function(menuData){
 		$scope.topMenuData = menuData;
 		console.log($scope.topMenuData);
 	});
 
     $scope.user = {};
+    $scope.user.auth = userAuthSer.isLoggedIn;
+
+
 
     if(userAuthSer.isLoggedIn == false){
         $scope.user.btnTxt = "Нэвтрэх";
@@ -20,30 +23,21 @@ app.controller('topMenuCtrl', function($scope, topMenuResource, $modal, $http, u
             });
         };
 
-        var ModalInstanceCtrl = function ($scope, $modalInstance, $log) {
+        var ModalInstanceCtrl = function ($scope, $modalInstance) {
 
 
             $scope.user = {};
             $scope.user.email = "";
             $scope.user.password = "";
+            $scope.user.alert = "";
+            var modalInstance = $modalInstance;
 
             $scope.userLogin = function(){
-                $http({method: 'POST', url:'./userAuthenticate', data: { email: $scope.user.email, password: $scope.user.password} })
-                    .success(function(data, status, headers, config){
-                        $log.info(data, status, headers, config);
-                        userAuthSer.isLoggedIn = true;
-                        console.log(userAuthSer.isLoggedIn = true);
-                    })
-                    .error(function(data, status, headers, config){
-                        $log.warn(data, status, headers, config)
-                    });
-                $modalInstance.close();
+                userLoginSer.userCheck($scope.user, modalInstance);
             };
 
-
-
             $scope.cancel = function () {
-                $modalInstance.dismiss('cancel');
+                modalInstance.dismiss('cancel');
             };
         };
     } else {

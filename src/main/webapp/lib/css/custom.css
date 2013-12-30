@@ -1,5 +1,7 @@
 @import url(http://fonts.googleapis.com/css?family=Comfortaa);
 
+
+/*============================ TOP MENU CSS ===========================*/
 .navMenu {
 	font-family: 'Comfortaa', cursive;
 	font-size: 1.2em;
@@ -9,37 +11,46 @@
 	min-width: 7em;
 	
 }
+#ul_for_topMenu {
+    height: 5.7em;
+    display: table-cell;
+    vertical-align: middle;
+}
 
-
- nav > ul > #logBtn {
+#logBtn {
 	position: absolute;
-	right: 1em;
+	right: 5px;
 }
 
 .loginWindow {
     width: 25em;
     margin: 0 auto;
 }
-
+/*============================== USER TOP MENU CSS =============================*/
 .topMenuStyle {
     background-color: #C7E6B8;
     margin: 0;
     padding: 0.2em 0.4em;
 }
 
-.topMenuStyle > ul {
-    display: table-cell;
-    height: 2em;
-    vertical-align: middle;
-    margin: 0;
+#ul_for_user_top_menu {
+    margin: auto;
 
 }
 
-.topMenuStyle > ul> li.btn-sm {
+#ul_for_user_top_menu > li.btn-sm {
     line-height: 0.4em;
     margin: auto;
 }
 
+/*=========================== MAIN CONTENT AREA CSS ========================*/
+
+#main_news_area:first-child {
+    padding-top: 1em;
+}
+
+
+/*================================ SIDE AREA CSS ==========================*/
 #side_area > article {
     height: 100%;
     min-height: 50em;
@@ -52,6 +63,24 @@
     background-color: #F3FFE3;
 }
 
-#main_content_area {
-    padding-top: 124px;
+/*================================== FOOTER CSS ==================================*/
+
+#footer_area{
+    margin: 0;
 }
+#footer_content{
+    background-color: #E76D2C;
+    color: #FFEF85;
+    min-height: 30px;
+    border-top: 5px solid #B3B46A;
+    padding: 1em;
+}
+
+#footer_copyright {
+    background-color: #842C09;
+    padding: 0.7em;
+    color: #FFEF85;
+
+}
+
+

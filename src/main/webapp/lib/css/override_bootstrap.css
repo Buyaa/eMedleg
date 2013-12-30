@@ -57,11 +57,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     border-color: #D8D8D8;
 }
 
-nav > ul {
-	height: 5.7em;
-	display: table-cell;
-	vertical-align: middle;
-}
+
 
 .navbar-brand {
 padding: 1em 2em;
@@ -91,6 +87,10 @@ padding: 1em 2em;
 
 .input-group-addon {
     min-width: 8em;
+}
+
+ul, ol {
+    margin: 0;
 }
 /*============================== ANGULAR BOOTSTRAP =========================*/
 .nav, .pagination, .carousel a { cursor: pointer; }

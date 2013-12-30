@@ -6,9 +6,10 @@
             </div>
             <div class="modal-body">
                 <div class="loginWindow">
+                    <div class="alert alert-warning" ng-show="user.alert">{{user.alert}}</div>
                     <div class="input-group">
                         <span class="input-group-addon">Нэвтрэх нэр: </span>
-                        <input type="text" class="form-control" placeholder="Username" required min="2" ng-model="user.email">
+                        <input autofocus type="text" class="form-control" placeholder="Username" required min="2" ng-model="user.email">
                     </div>
                     <br/>
                     <div class="input-group">

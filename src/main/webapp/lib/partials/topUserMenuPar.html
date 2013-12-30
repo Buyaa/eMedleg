@@ -1,5 +1,7 @@
 <div id="topUserMenu" class="topMenuStyle">
-    <ul>
-        <li class="btn btn-primary btn-sm" ng-repeat="menuData in topMenuData | filter:{role:'1'}">{{ menuData.title }}</li>
-    </ul>
+    <div class="container">
+        <ul id="ul_for_user_top_menu">
+            <li class="btn btn-primary btn-sm" ng-repeat="menuData in topMenuData | filter:{role:'1'}">{{ menuData.title }}</li>
+        </ul>
+    </div>
 </div>
