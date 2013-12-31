@@ -1,7 +1,7 @@
 <div id="topUserMenu" class="topMenuStyle">
     <div class="container">
         <ul id="ul_for_user_top_menu">
-            <li class="btn btn-primary btn-sm" ng-repeat="menuData in topMenuData | filter:{role:'1'}">{{ menuData.title }}</li>
+            <a class="btn btn-primary btn-sm" href="#/addnews" ng-repeat="menuData in topMenuData | filter:{role:'1'}">{{ menuData.title }}</a>
         </ul>
     </div>
 </div>

@@ -1,26 +1,24 @@
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" ng-click="cancel()">&times;</button>
-                <h4 class="modal-title">Нэвтэрч орох</h4>
-            </div>
-            <div class="modal-body">
-                <div class="loginWindow">
-                    <div class="alert alert-warning" ng-show="user.alert">{{user.alert}}</div>
-                    <div class="input-group">
-                        <span class="input-group-addon">Нэвтрэх нэр: </span>
-                        <input autofocus type="text" class="form-control" placeholder="Username" required min="2" ng-model="user.email">
-                    </div>
-                    <br/>
-                    <div class="input-group">
-                        <span class="input-group-addon">Нууц үг: </span>
-                        <input type="password" class="form-control" placeholder="Password" required min="2" ng-model="user.password">
-                    </div>
+<div>
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="cancel()">&times;</button>
+            <h4 class="modal-title">Нэвтэрч орох</h4>
+        </div>
+        <div class="modal-body">
+            <div class="loginWindow">
+                <div class="alert alert-warning" ng-show="user.alert">{{user.alert}}</div>
+                <div class="input-group">
+                    <span class="input-group-addon">Нэвтрэх нэр: </span>
+                    <input autofocus type="text" class="form-control" placeholder="Username" required min="2" ng-model="user.email">
                 </div>
-            </div><!-- /.modal-body -->
-            <div class="modal-footer">
-                <button class="btn btn-primary" ng-disabled="!user.email || !user.password" ng-click="userLogin()">Нэвтрэх</button>
-                <button class="btn btn-default" ng-click="cancel()">Хаах</button>
+                <br/>
+                <div class="input-group">
+                    <span class="input-group-addon">Нууц үг: </span>
+                    <input type="password" class="form-control" placeholder="Password" required min="2" ng-model="user.password">
+                </div>
             </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
+        </div><!-- /.modal-body -->
+        <div class="modal-footer">
+            <button class="btn btn-primary" ng-disabled="!user.email || !user.password" ng-click="userLogin()">Нэвтрэх</button>
+            <button class="btn btn-default" ng-click="cancel()">Хаах</button>
+        </div>
+</div>

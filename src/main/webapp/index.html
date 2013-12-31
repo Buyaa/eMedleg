@@ -2,8 +2,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link type="text/css" rel="stylesheet" href="vendor/css/bootstrap.css">
-        <!--<link type="text/css" rel="stylesheet" href="vendor/css/bootstrap-theme.css">-->
+        <link type="text/css" rel="stylesheet" href="vendor/bootstrap/dist/css/bootstrap.css">
         <link type="text/css" rel="stylesheet" href="lib/css/override_bootstrap.css">
         <link type="text/css" rel="stylesheet" href="lib/css/custom.css">
         <title>E-Medleg Electron knowledge</title>
@@ -23,8 +22,9 @@
 
 
 <!-- ====================================  NEWS ========================= -->
-	<section id="main_news_area" ng-controller="latestNewsCtrl" class="col-lg-9 col-md-9">
-	 	<data-info-cont-dir></data-info-cont-dir>
+	<section id="main_content_area" class="col-lg-9 col-md-9">
+        <div ng-view=""></div>
+
 	</section>
 
 <!-- =================================== A SIDE AREA ========================= -->
@@ -53,20 +53,21 @@
 
 
     <!--=============================== VENDOR JS =================================-->
-	<script type="text/javascript" src="vendor/angular.js"></script>
-	<script type="text/javascript" src="vendor/angular-resource.js"></script>
-	<script type="text/javascript" src="vendor/angular-route.js"></script>
-    <script type="text/javascript" src="vendor/ui-bootstrap-custom-0.7.0.js"></script>
-	<script type="text/javascript" src="vendor/jquery-2.0.3.min.js"></script>
-    <script type="text/javascript" src="vendor/angular-md5.js"></script>
+	<script type="text/javascript" src="vendor/angular/angular.js"></script>
+	<script type="text/javascript" src="vendor/angular-resource/angular-resource.js"></script>
+	<script type="text/javascript" src="vendor/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="vendor/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+	<!--<script type="text/javascript" src="vendor/jquery/jquery.js"></script>-->
 
     <!--=========================== CUSTOM JS =============================-->
 
 	<script type="text/javascript" src="lib/app.js"></script>
 	<script type="text/javascript" src="lib/services/data_services.js"></script>
+    <script type="text/javascript" src="lib/controllers/mainCtrls.js"></script>
 	<script type="text/javascript" src="lib/directive/topNavBarDir.js"></script>
     <script type="text/javascript" src="lib/directive/topUserMenu.js"></script>
 	<script type="text/javascript" src="lib/directive/infoContentDir.js"></script>
+
 
 	
 	<script type="text/javascript">

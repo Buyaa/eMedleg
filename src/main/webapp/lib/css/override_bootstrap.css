@@ -93,10 +93,11 @@ ul, ol {
     margin: 0;
 }
 /*============================== ANGULAR BOOTSTRAP =========================*/
+/*
 .nav, .pagination, .carousel a { cursor: pointer; }
 
 .modal {
     display: block;
     height: 0;
     overflow: visible;
-}
+}*/
