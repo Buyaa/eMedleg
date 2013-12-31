@@ -1,24 +1,41 @@
 package com.mn.emedleg.entity;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Transient;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
-public class CUser implements IUser{
+public class CUser implements IUser, UserDetails{
 	@Id
 	@GeneratedValue
 	private long id;
 	private String firstName;
 	private String lastName;
+	@Column(length = 64, nullable = false)
 	private String password;
 	private Date registeredDate;
+	@Column(unique = true, length = 50, nullable = false)
 	private String emailID;
 	private boolean enabled;
-//	@Enumerated(EnumType.STRING)
+	//@ElementCollection(fetch = FetchType.EAGER)
+	
+	@Enumerated(EnumType.STRING)
     @Column(name = "userRole")
     private Role role;
     //  get and set
@@ -38,9 +55,6 @@ public class CUser implements IUser{
 	}
 	public void setEmailID(String emailID) {
 		this.emailID = emailID;
-	}
-	public boolean isEnabled() {
-		return enabled;
 	}
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
@@ -79,5 +93,52 @@ public class CUser implements IUser{
 	@Override
 	public String getRegisteredDate() {
 		return registeredDate.toString();
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		
+		Set<String> roles = this.getRoles();
+
+		if (roles == null) {
+			return Collections.emptyList();
+		}
+
+		Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
+		for (String role : roles) {
+			authorities.add(new SimpleGrantedAuthority(role));
+		}
+		return authorities;
+	}
+
+	@Override
+	public String getUsername() {
+		return emailID;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+	@Override
+	public boolean isEnabled() {
+
+		return enabled;
+	}
+	public Set<String> getRoles() {
+		 Set<String> roles = new HashSet<String>();
+		 roles.add(role.name());
+		 System.out.println("roles:"+role.name());
+		 return roles;
 	}
 }
