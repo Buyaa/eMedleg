@@ -25,6 +25,15 @@ public abstract class AMenu extends AItem implements IMenu {
 	@JoinColumn(name="parent_id")
 	protected IMenu parent;
 	
+	private String name;
+	
+	public String getName() {
+		return name;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
 	public int getRole() {
 		return role;
 	}

@@ -5,24 +5,28 @@ import java.util.Map;
 
 public class UserTransfer {
 
-	private final String name;
+	private final String userName;
 
 	private final Map<String, Boolean> roles;
 
 	private final String token;
 
+	private final String name;
+	
+	public UserTransfer(String userName, Map<String, Boolean> roles, String token, String fullName) {
 
-	public UserTransfer(String userName, Map<String, Boolean> roles, String token) {
-
-		this.name = userName;
+		this.userName = userName;
 		this.roles = roles;
 		this.token = token;
+		this.name=fullName;
 	}
 
-
+	public String getFullName(){
+			return name;
+	}
 	public String getName() {
 
-		return this.name;
+		return this.userName;
 	}
 
 

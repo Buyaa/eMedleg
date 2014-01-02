@@ -51,13 +51,13 @@ public class CUserDAO extends AItemDAO<CUser> implements IUserDao {
 @SuppressWarnings("unchecked")
 	@Override
 	public List<CUser> find(String hql) {
-//		Query query=getFactory().getCurrentSession().createQuery(hql);
-//		return query.list();
-	String []param = hql.split("\n");
-	Query query=getFactory().getCurrentSession().createQuery("from CUser where emailID=:emailID and password=:password")
-	.setParameter("emailID", param[0])
-	.setParameter("password", param[1]);
-	return query.list();
+		Query query=getFactory().getCurrentSession().createQuery(hql);
+		return query.list();
+//	String []param = hql.split("\n");
+//	Query query=getFactory().getCurrentSession().createQuery("from CUser where emailID=:emailID and password=:password")
+//	.setParameter("emailID", param[0])
+//	.setParameter("password", param[1]);
+//	return query.list();
 	}
 
 }

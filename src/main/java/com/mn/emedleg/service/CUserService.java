@@ -26,4 +26,12 @@ public class CUserService extends AItemService<IUser> implements IUserService{
 	public IUser getUser(long id) {
 		return getDAO().get(id);
 	}
+
+	@Override
+	public IUser getUser(String username) {
+		List <IUser> users= getDAO().find("from CUser where emailID ='"+username+"'");
+		if(users.size()>0)
+			return users.get(0);
+		else return null;
+	}
 }

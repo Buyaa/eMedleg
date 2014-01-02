@@ -3,6 +3,7 @@ package com.mn.emedleg.controller;
 
 import java.util.HashMap;
 import java.util.Map;
+import javax.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -21,12 +22,14 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.mn.emedleg.entity.CLoginInfo;
 import com.mn.emedleg.security.TokenUtils;
 import com.mn.emedleg.security.UserTransfer;
+import com.mn.emedleg.service.IUserService;
 
 
 @Controller
 public class UserContoller {
-//	@Resource
-//	IUserService userService;
+	@Resource
+	IUserService service;
+	
 	@Autowired
 	private UserDetailsService userService;
 
@@ -55,6 +58,6 @@ public class UserContoller {
 			roles.put(authority.toString(), Boolean.TRUE);
 		}
 
-		return new UserTransfer(userDetails.getUsername(), roles, TokenUtils.createToken(userDetails));
+		return new UserTransfer(userDetails.getUsername(), roles, TokenUtils.createToken(userDetails), service.getUser(user.getEmail()).getUserName());
 	}
 }
