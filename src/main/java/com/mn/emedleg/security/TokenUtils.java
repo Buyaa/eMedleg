@@ -17,7 +17,7 @@ public class TokenUtils {
 	public static String createToken(UserDetails userDetails) {
 
 		/* Expires in one hour */
-		long expires = System.currentTimeMillis() + 1000L * 60 * 5;
+		long expires = System.currentTimeMillis() + 1000L * 60 * 30;
 
 		StringBuilder tokenBuilder = new StringBuilder();
 		tokenBuilder.append(userDetails.getUsername());
@@ -68,11 +68,12 @@ public class TokenUtils {
 		String[] parts = authToken.split(":");
 		long expires = Long.parseLong(parts[1]);
 		String signature = parts[2];
-
+		
 		if (expires < System.currentTimeMillis()) {
+			System.out.println("time elapsed");
 			return false;
 		}
-
+		System.out.println("is valid: "+signature.equals(TokenUtils.computeSignature(userDetails, expires)));
 		return signature.equals(TokenUtils.computeSignature(userDetails, expires));
 	}
 }

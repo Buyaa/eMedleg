@@ -7,21 +7,22 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Column;
-
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.Transient;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-@Entity
+@Entity(name="cuser")
 public class CUser implements IUser, UserDetails{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue
 	private long id;
@@ -33,9 +34,8 @@ public class CUser implements IUser, UserDetails{
 	@Column(unique = true, length = 50, nullable = false)
 	private String emailID;
 	private boolean enabled;
-	//@ElementCollection(fetch = FetchType.EAGER)
 	
-	@Enumerated(EnumType.STRING)
+//	@Enumerated(EnumType.STRING)
     @Column(name = "userRole")
     private Role role;
     //  get and set
@@ -138,7 +138,6 @@ public class CUser implements IUser, UserDetails{
 	public Set<String> getRoles() {
 		 Set<String> roles = new HashSet<String>();
 		 roles.add(role.name());
-		 System.out.println("roles:"+role.name());
 		 return roles;
 	}
 }

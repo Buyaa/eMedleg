@@ -13,7 +13,7 @@ import javax.persistence.TemporalType;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
 
-@Entity
+@Entity (name="ccomment")
 public class CComment implements IComment{
 	@Id @GeneratedValue
 	private long id;

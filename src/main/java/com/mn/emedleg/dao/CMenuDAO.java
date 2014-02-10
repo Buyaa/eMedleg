@@ -25,6 +25,6 @@ public class CMenuDAO extends AItemDAO<IMenu>{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<IMenu> listAll() {
-		return (List<IMenu>)getFactory().getCurrentSession().createQuery("from AMenu where parent is null").list();
+		return (List<IMenu>)getFactory().getCurrentSession().createQuery("from amenu where parent is null").list();
 	}
 }

@@ -1,7 +1,10 @@
 <div id="topUserMenu" class="topMenuStyle">
     <div class="container">
         <ul id="ul_for_user_top_menu">
-            <a class="btn btn-primary btn-sm" href="#/addnews" ng-repeat="menuData in topMenuData | filter:{role:'1'}">{{ menuData.title }}</a>
+        <span id= "adminMenu" ng-show="hasRole('ROLE_ADMIN')">
+            <a class="btn btn-primary btn-sm" href="admin/{{ menuData.name }}" ng-repeat="menuData in topMenuData | filter:{role:'1'}">{{ menuData.title }}</a>
+            <a class="btn btn-primary btn-sm" href="admin/{{ menuData.name }}" ng-repeat="menuData in topMenuData | filter:{role:'2'}">{{ menuData.title }}</a>
+        </span>
         </ul>
     </div>
 </div>

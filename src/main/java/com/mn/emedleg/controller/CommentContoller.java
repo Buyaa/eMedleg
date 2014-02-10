@@ -1,8 +1,8 @@
 package com.mn.emedleg.controller;
 
-import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,36 +13,31 @@ import com.mn.emedleg.service.ICommentService;
 
 
 @Controller
+@RequestMapping("/admin")
 public class CommentContoller {
-	@Resource
+
 	private ICommentService service;
-	//TODO ene barag hereggui yum shig bna
-//	@RequestMapping(value="/comments/{pubId}", method=RequestMethod.POST)
-//	public String getAll(Model model,  @PathVariable long pubId) {
-//		model.addAttribute("comments", service.getAll(pubId));
-//		return "publication";
-//	}
 	
-	@RequestMapping(value="/comment/add", method=RequestMethod.POST)
-	public String add(IComment comment) {
+	@RequestMapping(value="/comment", method=RequestMethod.POST)
+	public @ResponseBody String add(@RequestBody IComment comment) {
 		service.add(comment);
-		return "redirect:/publication";
+		return "Success";
 	}
 	
-	@RequestMapping(value = "/deleteComment")
+	@RequestMapping(value = "/comment", method=RequestMethod.DELETE)
 	public @ResponseBody String deleteComment(@RequestParam long commentId) {
 		service.delete(commentId);
-		return "Comment deleted successfully";
+		return "Success";
 	}
-	@RequestMapping(value = "/likeComment")
+	@RequestMapping(value = "/like", method=RequestMethod.POST)
 	public @ResponseBody String likeComment(@RequestParam long commentId) {
-		service.incrementDislikeCount(commentId);
-		return "success";
-	}
-	@RequestMapping(value = "/dislikeComment")
-	public @ResponseBody String dislikeComment(@RequestParam long commentId) {
 		service.incrementLikeCount(commentId);
-		return "success";
+		return "Success";
+	}
+	@RequestMapping(value = "/dislike", method=RequestMethod.POST)
+	public @ResponseBody String dislikeComment(@RequestParam long commentId) {
+		service.incrementDislikeCount(commentId);
+		return "Success";
 	}
 // TODO: exception handler
 //	@ExceptionHandler(value=NoSuchResourceException.class)

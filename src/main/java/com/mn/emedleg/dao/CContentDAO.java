@@ -27,7 +27,7 @@ public class CContentDAO extends AItemDAO<IContent>{
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<IContent> listAll() {
-		return (List<IContent>)getFactory().getCurrentSession().createQuery("from AContent a order by a.createdDate desc")
+		return (List<IContent>)getFactory().getCurrentSession().createQuery("from acontent a order by a.createdDate desc")
 				.setFirstResult(0).setMaxResults(10).list();
 	}
 

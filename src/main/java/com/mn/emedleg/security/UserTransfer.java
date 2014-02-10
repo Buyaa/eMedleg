@@ -14,7 +14,6 @@ public class UserTransfer {
 	private final String name;
 	
 	public UserTransfer(String userName, Map<String, Boolean> roles, String token, String fullName) {
-
 		this.userName = userName;
 		this.roles = roles;
 		this.token = token;

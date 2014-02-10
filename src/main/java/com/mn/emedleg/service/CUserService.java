@@ -8,13 +8,6 @@ import com.mn.emedleg.entity.IUser;
 
 public class CUserService extends AItemService<IUser> implements IUserService{
 	Hashtable<Long, CUser> users;
-	@Override
-	public IUser autenticate(String email, String password) {
-		List<IUser> list=getDAO().find(email+"\n"+password);
-		if (list.size()==1)
-			return list.get(0);
-		return null;
-	}
 
 	@Override
 	public boolean chekEmail(String email) {
@@ -29,7 +22,7 @@ public class CUserService extends AItemService<IUser> implements IUserService{
 
 	@Override
 	public IUser getUser(String username) {
-		List <IUser> users= getDAO().find("from CUser where emailID ='"+username+"'");
+		List <IUser> users= getDAO().find("from cuser where emailID ='"+username+"'");
 		if(users.size()>0)
 			return users.get(0);
 		else return null;

@@ -6,7 +6,9 @@ import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -48,6 +50,13 @@ public class AuthenticationTokenProcessingFilter extends GenericFilterBean {
 						new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
 				authentication.setDetails(new WebAuthenticationDetailsSource().buildDetails((HttpServletRequest) request));
 				SecurityContextHolder.getContext().setAuthentication(authentication);
+			}
+			else{
+				System.out.println("here");
+//				Cookie []cookies=((HttpServletResponse)response).getCookies();
+				Cookie cookie = new Cookie("loggedUser", "");
+				cookie.setMaxAge(0);
+				((HttpServletResponse)response).setHeader("X-Auth-Token", null);//addCookie(cookie);
 			}
 		}
 

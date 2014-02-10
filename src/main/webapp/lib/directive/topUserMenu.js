@@ -3,5 +3,5 @@ app.directive('userMenu', function(){
         restrict: 'E',
         replace: true,
         templateUrl: './lib/partials/topUserMenuPar.html'
-    }
+    };
 });

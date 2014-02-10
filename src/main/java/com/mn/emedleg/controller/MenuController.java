@@ -1,51 +1,37 @@
 package com.mn.emedleg.controller;
 
-import javax.annotation.Resource;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.mn.emedleg.entity.cms.IMenu;
-
 import com.mn.emedleg.service.IMenuService;
 
 @Controller
+@RequestMapping("/admin")
 public class MenuController {
-	@Resource
+	@Autowired
 	private IMenuService service;
 
-	@RequestMapping(value="/menus/{menuId}", method=RequestMethod.POST)
-	public String getAll(ModelMap model,  @PathVariable long menuId) {
-		model.addAttribute("menus", service.getAll(menuId));
-		return "menus";
-	}
-	
-	@RequestMapping(value="/menu/add", method=RequestMethod.POST)
-	public String add(IMenu menu) {
+	@RequestMapping(value="/menu", method=RequestMethod.POST)
+	public @ResponseBody String createMenu(@RequestBody IMenu menu) {
 		service.add(menu);
-		return "redirect:/menu";
+		return "Added";
 	}
 	
-	@RequestMapping(value = "/deleteMenu")
-	public @ResponseBody String deleteMenu(@RequestParam long menuId) {
-		service.delete(menuId);
-		return "Content deleted successfully";
+	@RequestMapping(value="/menu/{id}", method=RequestMethod.DELETE)
+	public @ResponseBody String add(@PathVariable long id){
+		service.delete(id);
+		return "Menu deleted successfully";
 	}
-	//TODO : ene hereg bolohgui bh
-//	@RequestMapping(value = "/toggleContent")
-//	public @ResponseBody String likeComment(@RequestParam long contentId) {
-//		service.publishUnpublish(contentId);
-//		return "success";
-//	}
-//	
-//	@RequestMapping(value="/menu/{id}", method=RequestMethod.POST)
-//	public String get(@PathVariable int id, Model model) {
-//		model.addAttribute("menu", service.get(id));
-//		return "menuDetail";
+	
+//	@RequestMapping(value = "/deleteMenu")
+//	public @ResponseBody String deleteMenu(@RequestBody IMenu menu) {
+//		service.delete(menu);
+//		return "Menu deleted successfully";
 //	}
 }

@@ -6,24 +6,15 @@
            http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
            http://www.springframework.org/schema/security
            http://www.springframework.org/schema/security/spring-security.xsd">
-       
-<!--   <http pattern="/lib/**" security="none"/>
-   <http pattern="/vendor/**" security="none"/>--> 
    <http use-expressions="true"	auto-config="false"	create-session="stateless" entry-point-ref="unauthorizedEntryPoint"
 			authentication-manager-ref="authenticationManager">
 		<custom-filter ref="authenticationTokenProcessingFilter" position="FORM_LOGIN_FILTER" />
-		<intercept-url method="GET" pattern="/news/**" access="hasRole('user')" />
-		<intercept-url method="PUT" pattern="/rest/news/**" access="hasRole('ROLE_ADMIN')" />
-		<intercept-url method="POST" pattern="/rest/news/**" access="hasRole('ROLE_PUBLICANT')" />
-		<intercept-url method="DELETE" pattern="/rest/news/**" access="hasRole('ROLE_ADMIN')" />
-		<!--<intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />-->
+		<intercept-url method="POST" pattern="/admin/content/**" access="hasRole('ROLE_PUBLICANT')" />
+		<intercept-url method="POST" pattern="/admin/user/**" access="hasRole('ROLE_PUBLICANT')" />
+		<intercept-url pattern="/admin/**" access="hasRole('ROLE_ADMIN')" />
+<!--   		<intercept-url method="DELETE" pattern="/admin/**" access="hasRole('ROLE_ADMIN')" /> -->		
 		<intercept-url pattern="/**" access="permitAll" /> 
 	</http>
-  <!-- <http auto-config='true' use-expressions="true">
-   		<intercept-url pattern="/admin" access="ROLE_ADMIN" />
-   		<intercept-url pattern="/publication" access="ROLE_PUBLICANT" />
-   		<intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
-   </http> -->
 	<beans:bean id="itemDAO" class="com.mn.emedleg.dao.AItemDAO" abstract="true">
 		<beans:property name="factory" ref="sessionFactory"/>
  	</beans:bean>
@@ -38,9 +29,7 @@
 			<password-encoder ref="passwordEncoder"></password-encoder>
 		</authentication-provider>
 	</authentication-manager>
-	
 
-	
 	<beans:bean id="unauthorizedEntryPoint" class="com.mn.emedleg.security.UnauthorizedEntryPoint" />
 
 	<beans:bean class="com.mn.emedleg.security.AuthenticationTokenProcessingFilter" id="authenticationTokenProcessingFilter">

@@ -12,8 +12,12 @@ import com.mn.emedleg.entity.CUser;
 
 
 public class CUserDAO extends AItemDAO<CUser> implements IUserDao {
-	public CUserDAO() {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
+	public CUserDAO() {
 		super(CUser.class);
 	}
 
@@ -34,7 +38,7 @@ public class CUserDAO extends AItemDAO<CUser> implements IUserDao {
 	public CUser findByName(String name) {
 		 List<CUser> users=null;
 		try{
-		Query query=getFactory().getCurrentSession().createQuery("from CUser where emailID = :email");
+		Query query=getFactory().getCurrentSession().createQuery("from cuser where emailID = :email");
 		query.setParameter("email", name);
 		 users = query.list();
 		}catch(Exception e){
@@ -48,16 +52,10 @@ public class CUserDAO extends AItemDAO<CUser> implements IUserDao {
 		return users.iterator().next();
 	}
 
-@SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
 	@Override
 	public List<CUser> find(String hql) {
 		Query query=getFactory().getCurrentSession().createQuery(hql);
 		return query.list();
-//	String []param = hql.split("\n");
-//	Query query=getFactory().getCurrentSession().createQuery("from CUser where emailID=:emailID and password=:password")
-//	.setParameter("emailID", param[0])
-//	.setParameter("password", param[1]);
-//	return query.list();
 	}
-
 }

@@ -29,8 +29,8 @@ public class CContentService extends AItemService<IContent> implements IContentS
 	}
 
 	@Override
-	public void publishUnpublish(long contentId) {
-		getDAO().get(contentId).togglePublish();		
+	public void setStatus(int status, long contentId) {
+		getDAO().get(contentId).setStatus(status);		
 	}
 
 	@Override

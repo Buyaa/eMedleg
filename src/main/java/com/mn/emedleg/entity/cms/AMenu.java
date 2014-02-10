@@ -14,7 +14,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.mn.emedleg.entity.CUser;
 
-@Entity
+@Entity (name="amenu")
 @Inheritance
 public abstract class AMenu extends AItem implements IMenu {
 	@JsonIgnore

@@ -8,5 +8,5 @@ public interface IContent extends IItem{
 	public boolean deleteComment();
 	public String getContent();
 	public List<IItem> getComments();
-	public void togglePublish();
+	public void setStatus(int status);
 }

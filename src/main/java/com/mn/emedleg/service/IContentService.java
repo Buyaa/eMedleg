@@ -11,6 +11,6 @@ public interface IContentService extends IItemService<IContent>{
 	public String getContentText(long contentID);
 	public List<IItem> getComments(long contentID);
 	public IContent get(long id);
-	public void publishUnpublish(long contentId);
+	public void setStatus(int status, long id);
 	public List<IContent> getLatest();
 }

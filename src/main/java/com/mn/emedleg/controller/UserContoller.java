@@ -3,7 +3,7 @@ package com.mn.emedleg.controller;
 
 import java.util.HashMap;
 import java.util.Map;
-import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -27,7 +27,7 @@ import com.mn.emedleg.service.IUserService;
 
 @Controller
 public class UserContoller {
-	@Resource
+	@Autowired
 	IUserService service;
 	
 	@Autowired
@@ -39,7 +39,6 @@ public class UserContoller {
 	
 
 	@RequestMapping(value = "/userAuthenticate",  method = RequestMethod.POST)
-//	@Produces(MediaType.APPLICATION_JSON)
 	public @ResponseBody UserTransfer authenticate(@RequestBody CLoginInfo user) {
 		UsernamePasswordAuthenticationToken authenticationToken =
 				new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword());

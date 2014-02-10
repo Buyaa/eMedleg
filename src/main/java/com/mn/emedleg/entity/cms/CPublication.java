@@ -37,6 +37,6 @@ public class CPublication extends AContent {
 	}
 
 	public String getAbbrevation(){
-		return content.substring(0, 50);
+		return getIntroText();
 	}
 }
